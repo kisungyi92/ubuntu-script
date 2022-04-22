@@ -23,7 +23,7 @@ network:
                - $staticip
             gateway4: $gatewayip
             nameservers:
-              addresses: [$nameserversip]
+              addresses: [8.8.8.8, 8.8.4.4]
 EOF
 sudo netplan apply
 echo "==========================="
