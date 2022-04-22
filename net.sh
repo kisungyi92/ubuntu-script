@@ -13,15 +13,16 @@ read -p "Enter the IP of preferred nameservers (seperated by a coma if more than
 echo
 cat > /etc/netplan/01-netcfg.yaml <<EOF
 network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    $nic
-      addresses:
-        - $staticip
-      gateway4: $gatewayip
-      nameservers:
-          addresses: [$nameserversip]
+    version: 2
+    renderer: networkd
+    ethernets:
+        wlp5s0:
+            dhcp4: no
+            addresses:
+               - $staticip
+            gateway4: $gatewayip
+            nameservers:
+              addresses: [$nameserversip]
 EOF
 sudo netplan apply
 echo "==========================="
