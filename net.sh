@@ -1,8 +1,6 @@
 #!/bin/bash
 #
 # Creates a backup
-((EUID == 0)) || { echo 'Run as root' >&2; exit 1; }
-
 cp /etc/netplan/01-netcfg.yaml /etc/netplan/01-netcfg.yaml.bk_`date +%Y%m%d%H%M`
 # Changes dhcp from 'yes' to 'no'
 sed -i "s/dhcp4: yes/dhcp4: no/g" /etc/netplan/01-netcfg.yaml
