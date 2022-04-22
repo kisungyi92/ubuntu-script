@@ -9,8 +9,8 @@ sed -i "s/dhcp4: yes/dhcp4: no/g" /etc/netplan/01-netcfg.yaml
 nic=`ifconfig | awk 'NR==1{print $1}'`
 # Ask for input on network configuration
 read -p "Enter the static IP of the server in CIDR notation: " staticip 
-read -p "Enter the IP of your gateway: " gatewayip
-read -p "Enter the IP of preferred nameservers (seperated by a coma if more than one): " nameserversip
+#read -p "Enter the IP of your gateway: " gatewayip
+#read -p "Enter the IP of preferred nameservers (seperated by a coma if more than one): " nameserversip
 echo
 cat > /etc/netplan/01-netcfg.yaml <<EOF
 network:
@@ -21,7 +21,7 @@ network:
             dhcp4: no
             addresses:
                - $staticip
-            gateway4: $gatewayip
+            gateway4: "172.30.1.254" #$gatewayip
             nameservers:
               addresses: [8.8.8.8, 8.8.4.4]
 EOF
