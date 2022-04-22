@@ -17,7 +17,7 @@ network:
     version: 2
     renderer: networkd
     ethernets:
-        wlp5s0:
+        $nic
             dhcp4: no
             addresses:
                - $staticip
