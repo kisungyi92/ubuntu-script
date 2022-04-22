@@ -18,7 +18,7 @@ network:
   ethernets:
     $nic
       addresses:
-          - $staticip
+        - $staticip
       gateway4: $gatewayip
       nameservers:
           addresses: [$nameserversip]
