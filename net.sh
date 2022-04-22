@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-echo apt install net-tools
+apt install net-tools
 # Creates a backup
 cp /etc/netplan/01-netcfg.yaml /etc/netplan/01-netcfg.yaml.bk_`date +%Y%m%d%H%M`
 # Changes dhcp from 'yes' to 'no'
